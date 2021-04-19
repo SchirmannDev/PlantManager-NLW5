@@ -21,9 +21,7 @@ export function Welcome() {
         Nós cuidamos de lembrar você sempre que precisar.
       </Text>
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.8}>
-        <Text style={styles.buttonText}> > </Text>
-      </TouchableOpacity>
+
     </SafeAreaView>
   );
 }
@@ -56,7 +54,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginBottom: 10,
     height: 56,
-    width: 56
+    paddingHorizontal: 10,
+
   },
   image: {
     width: 492,
