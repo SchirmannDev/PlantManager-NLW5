@@ -3,22 +3,23 @@ import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet } from 'react-n
 
 
 import wateringImg from '../assets/watering.png';
+import colors from '../styles/colors';
 
 export function Welcome() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>
+      <Text style={styles.title}>
         Gerencie suas plantas de forma facil.
       </Text>
       <Image source={wateringImg} />
 
-      <Text>
+      <Text style={styles.subtitle}>
         Não esqueça mais de regar suas plantas.
         Nós cuidamos de lembrar você sempre que precisar.
       </Text>
 
-      <TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
         <Text> > </Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -32,5 +33,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingTop: 20
-  }
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: colors.heading,
+    marginTop: 38,
+  },
+  subtitle: {},
+  button: {}
 });
