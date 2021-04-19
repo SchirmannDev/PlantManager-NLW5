@@ -10,17 +10,19 @@ export function Welcome() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>
-        Gerencie suas plantas de forma facil.
+        Gerencie {'\n'}
+        suas plantas {'\n'}
+        de forma facil.
       </Text>
-      <Image source={wateringImg} />
+      <Image source={wateringImg} style={styles.image} />
 
       <Text style={styles.subtitle}>
-        Não esqueça mais de regar suas plantas.
+        Não esqueça mais de regar suas plantas.{'\n'}
         Nós cuidamos de lembrar você sempre que precisar.
       </Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text> > </Text>
+      <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+        <Text style={styles.buttonText}> > </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -35,12 +37,34 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   title: {
-    fontSize: 32,
+    fontSize: 42,
     fontWeight: 'bold',
     textAlign: 'center',
     color: colors.heading,
     marginTop: 38,
   },
-  subtitle: {},
-  button: {}
+  subtitle: {
+    textAlign: 'center',
+    fontSize: 25,
+    paddingHorizontal: 20,
+    color: colors.heading
+  },
+  button: {
+    backgroundColor: colors.green,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 16,
+    marginBottom: 10,
+    height: 56,
+    width: 56
+  },
+  image: {
+    width: 492,
+    height: 484
+  },
+  buttonText: {
+    color: colors.white,
+    fontSize: 18,
+    fontWeight: 'bold'
+  }
 });
