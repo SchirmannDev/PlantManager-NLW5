@@ -13,12 +13,6 @@ import wateringImg from '../assets/watering.png';
 import { Button } from '../components/Button';
 
 export function Welcome() {
-  const [viseble, setVisible] = useState(false);
-
-  function handleVisibility() {
-    setVisible(true);
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>
@@ -33,7 +27,12 @@ export function Welcome() {
         Nós cuidamos de lembrar você sempre que precisar.
       </Text>
 
-      <Button title=">" />
+      <TouchableOpacity style={styles.button}
+        activeOpacity={0.8}>
+
+        <Text style={styles.buttonText}> > </Text>
+
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -41,7 +40,7 @@ export function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
     paddingTop: 10,
   },
@@ -65,11 +64,12 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginBottom: 10,
     height: 56,
-    paddingHorizontal: 10,
+    width: 56,
+
   },
   image: {
-    width: 492,
-    height: 484,
+    width: 392,
+    height: 384,
   },
   buttonText: {
     color: colors.white,
