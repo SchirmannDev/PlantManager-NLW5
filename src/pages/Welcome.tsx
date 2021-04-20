@@ -8,7 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 import colors from '../styles/colors';
 
@@ -31,8 +31,8 @@ export function Welcome() {
       </Text>
 
       <TouchableOpacity style={styles.button} activeOpacity={0.8}>
-        <Text style={styles.buttonText}>
-          <Entypo name="chevron-thin-right" />
+        <Text>
+          <Feather name="chevron-right" style={styles.buttonIcon} />
         </Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -71,9 +71,8 @@ const styles = StyleSheet.create({
   image: {
     height: Dimensions.get('window').width * 0.7,
   },
-  buttonText: {
+  buttonIcon: {
     color: colors.white,
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 24,
   },
 });
