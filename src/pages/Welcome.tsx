@@ -11,7 +11,7 @@ import {
 import colors from '../styles/colors';
 
 import wateringImg from '../assets/watering.png';
-import { Button } from '../components/Button';
+
 
 export function Welcome() {
   return (
