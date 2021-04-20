@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  Dimensions
 } from 'react-native';
 
 import colors from '../styles/colors';
@@ -20,7 +21,11 @@ export function Welcome() {
         suas plantas {'\n'}
         de forma facil.
       </Text>
-      <Image source={wateringImg} style={styles.image} />
+
+      <Image source={wateringImg}
+        style={styles.image}
+        resizeMode='contain'
+      />
 
       <Text style={styles.subtitle}>
         Não esqueça mais de regar suas plantas.{'\n'}
@@ -68,8 +73,8 @@ const styles = StyleSheet.create({
 
   },
   image: {
-    width: 392,
-    height: 384,
+
+    height: Dimensions.get('window').width * 0.7
   },
   buttonText: {
     color: colors.white,
