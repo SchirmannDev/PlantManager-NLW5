@@ -5,13 +5,14 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-  Dimensions
+  Dimensions,
 } from 'react-native';
+
+import { Entypo } from '@expo/vector-icons';
 
 import colors from '../styles/colors';
 
 import wateringImg from '../assets/watering.png';
-
 
 export function Welcome() {
   return (
@@ -22,21 +23,17 @@ export function Welcome() {
         de forma facil.
       </Text>
 
-      <Image source={wateringImg}
-        style={styles.image}
-        resizeMode='contain'
-      />
+      <Image source={wateringImg} style={styles.image} resizeMode="contain" />
 
       <Text style={styles.subtitle}>
         Não esqueça mais de regar suas plantas.{'\n'}
         Nós cuidamos de lembrar você sempre que precisar.
       </Text>
 
-      <TouchableOpacity style={styles.button}
-        activeOpacity={0.8}>
-
-        <Text style={styles.buttonText}> > </Text>
-
+      <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+        <Text style={styles.buttonText}>
+          <Entypo name="chevron-thin-right" />
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -70,11 +67,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     height: 56,
     width: 56,
-
   },
   image: {
-
-    height: Dimensions.get('window').width * 0.7
+    height: Dimensions.get('window').width * 0.7,
   },
   buttonText: {
     color: colors.white,
