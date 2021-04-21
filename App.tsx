@@ -8,7 +8,7 @@ import {
 } from '@expo-google-fonts/jost';
 import AppLoading from 'expo-app-loading';
 
-import { UserIndentification } from './src/pages/UserIdentification';
+import { Confirmation } from './src/pages/Confirmation';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <>
-      <UserIndentification />
+      <Confirmation />
       <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
     </>
   );
