@@ -15,11 +15,12 @@ export function Confirmation() {
         <Text style={styles.title}>Prontinho!</Text>
 
         <Text style={styles.subtitle}>
-          Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
+          Agora vamos começar a cuidar das suas {'\n'}
+          plantinhas com muito cuidado.
         </Text>
-      </View>
-      <View style={styles.footer}>
-        <Button />
+        <View style={styles.footer}>
+          <Button />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -31,9 +32,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  content: {},
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    padding: 30,
+  },
   emoji: {
-    fontSize: 32,
+    fontSize: 80,
   },
   title: {
     fontSize: 22,
@@ -41,6 +48,7 @@ const styles = StyleSheet.create({
     color: colors.heading,
     lineHeight: 38,
     marginTop: 15,
+    textAlign: 'center',
   },
   subtitle: {
     fontFamily: fonts.text,
@@ -48,9 +56,11 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingHorizontal: 20,
     color: colors.heading,
+    marginTop: 15,
   },
   footer: {
     width: '100%',
     paddingHorizontal: 75,
+    marginTop: 20,
   },
 });
