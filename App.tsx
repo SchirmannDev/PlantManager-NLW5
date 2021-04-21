@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'react-native';
 
@@ -8,7 +9,7 @@ import {
 } from '@expo-google-fonts/jost';
 import AppLoading from 'expo-app-loading';
 
-import { Confirmation } from './src/pages/Confirmation';
+import Routes from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +21,7 @@ export default function App() {
 
   return (
     <>
-      <Confirmation />
+      <Routes />
       <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
     </>
   );
