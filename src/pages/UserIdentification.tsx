@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,6 +15,16 @@ import fonts from '../styles/fonts';
 import { Button } from '../components/Button';
 
 export function UserIndentification() {
+  const [isFocused, setIsFocused] = useState(false);
+
+  function handleInputBlur() {
+    setIsFocused(false);
+  }
+
+  function handleInputFocus() {
+    setIsFocused(true);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
@@ -32,7 +42,12 @@ export function UserIndentification() {
               </Text>
             </View>
 
-            <TextInput style={styles.input} placeholder="Digite um nome" />
+            <TextInput
+              style={[styles.input, isFocused && { borderColor: colors.green }]}
+              placeholder="Digite um nome"
+              onBlur={handleInputBlur}
+              onFocus={handleInputFocus}
+            />
             <View style={styles.footer}>
               <Button />
             </View>
