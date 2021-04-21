@@ -1,23 +1,44 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View, Text, TextInput } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
+import { Button } from '../components/Button';
+
 export function UserIndentification() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <View style={styles.form}>
-          <Text style={styles.title}>
-            Como podemos {'\n'}
-            chamar você?
-          </Text>
-          <Text style={styles.emoji}>😄</Text>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <View style={styles.content}>
+          <View style={styles.form}>
+            <View style={styles.header}>
+              <Text style={styles.emoji}>😄</Text>
 
-          <TextInput style={styles.input} />
+              <Text style={styles.title}>
+                Como podemos {'\n'}
+                chamar você?
+              </Text>
+            </View>
+
+            <TextInput style={styles.input} placeholder="Digite um nome" />
+            <View style={styles.footer}>
+              <Button />
+            </View>
+          </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -39,6 +60,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 54,
     alignItems: 'center',
   },
+  header: {
+    alignItems: 'center',
+  },
   emoji: {
     fontSize: 54,
   },
@@ -55,8 +79,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+    lineHeight: 40,
     textAlign: 'center',
     color: colors.heading,
     fontFamily: fonts.heading,
+    marginTop: 20,
+  },
+  footer: {
+    marginTop: 40,
+    width: '100%',
+    paddingHorizontal: 20,
   },
 });
