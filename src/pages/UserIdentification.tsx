@@ -6,7 +6,7 @@ export function UserIndentification() {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.form}>
-          <Text style={styles.emoji}>😃</Text>
+          <Text style={styles.emoji}>😄</Text>
         </View>
       </View>
     </SafeAreaView>
