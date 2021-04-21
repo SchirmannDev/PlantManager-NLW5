@@ -16,13 +16,21 @@ import { Button } from '../components/Button';
 
 export function UserIndentification() {
   const [isFocused, setIsFocused] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
+  const [name, setName] = useState<string>();
 
   function handleInputBlur() {
     setIsFocused(false);
+    setIsFilled(!!name);
   }
 
   function handleInputFocus() {
     setIsFocused(true);
+  }
+
+  function handleInputChange(value: string) {
+    setIsFilled(!!value);
+    setName(value);
   }
 
   return (
@@ -43,10 +51,14 @@ export function UserIndentification() {
             </View>
 
             <TextInput
-              style={[styles.input, isFocused && { borderColor: colors.green }]}
+              style={[
+                styles.input,
+                isFocused && isFilled && { borderColor: colors.green },
+              ]}
               placeholder="Digite um nome"
               onBlur={handleInputBlur}
               onFocus={handleInputFocus}
+              onChangeText={handleInputChange}
             />
             <View style={styles.footer}>
               <Button />
