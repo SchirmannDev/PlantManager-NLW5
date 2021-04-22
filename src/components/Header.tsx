@@ -5,7 +5,7 @@ import fonts from '~/styles/fonts';
 
 import colors from '../styles/colors';
 
-import userImg from '../assets/cintia.jpeg';
+import userImg from '../assets/cintia.png';
 
 export function Header() {
   return (
