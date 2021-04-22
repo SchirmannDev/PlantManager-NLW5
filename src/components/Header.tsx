@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderColor: '#fc27a7',
   },
   userName: {
-    fontSize: 32,
+    fontSize: 52,
     fontFamily: fonts.heading,
     color: colors.pink,
   },
