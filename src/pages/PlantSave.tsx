@@ -88,6 +88,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.blue_light,
     padding: 20,
+    borderRadius: 20,
+    position: 'relative',
+    bottom: 60,
   },
   tipImage: {
     width: 56,
