@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-import fonts from '~/styles/fonts';
-
 import colors from '../styles/colors';
+import fonts from '../styles/fonts';
 
 import userImg from '../assets/cintia.png';
 
