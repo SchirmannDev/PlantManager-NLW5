@@ -11,13 +11,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "baseUrl": "src",
-    "paths": {
-      "~/*": [
-        "*"
-      ]
-    }
+    "suppressImplicitAnyIndexErrors": true
   },
   "extends": "expo/tsconfig.base"
 }
