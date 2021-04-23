@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import { color } from 'react-native-reanimated';
+import { useRoute } from '@react-navigation/core';
 import { SvgFromUri } from 'react-native-svg';
 
 import colors from '../styles/colors';
@@ -18,26 +18,38 @@ import fonts from '../styles/fonts';
 import waterdrop from '../assets/waterdrop.png';
 import { Button } from '../components/Button';
 
+interface Params {
+  plant: {
+    id: string;
+    name: string;
+    about: string;
+    water_tips: string;
+    photo: string;
+    environments: [string];
+    frequency: {
+      times: number;
+      repeat_every: string;
+    };
+  };
+}
+
 export function PlantSave() {
+  const route = useRoute();
+  const { plant } = route.params as Params;
   return (
     <View style={styles.container}>
       <View style={styles.plantInfo}>
-        <SvgFromUri uri="" height={150} width={150} />
+        <SvgFromUri uri={plant.photo} height={150} width={150} />
 
-        <Text style={styles.plantName}>Nome da Planta</Text>
+        <Text style={styles.plantName}>{plant.name}</Text>
 
-        <Text style={styles.plantAbout}>
-          Lorem ipsum dolor sit amet c onsectetur adipisicing elit. Distinctio,
-          maxime.
-        </Text>
+        <Text style={styles.plantAbout}>{plant.about}</Text>
       </View>
 
       <View style={styles.controller}>
         <View style={styles.tipContainer}>
           <Image source={waterdrop} style={styles.tipImage} />
-          <Text style={styles.tipText}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          </Text>
+          <Text style={styles.tipText}>{plant.water_tips}</Text>
         </View>
         <Text style={styles.alertLabel}>
           Escolha o melhor horario para ser lembrado.
