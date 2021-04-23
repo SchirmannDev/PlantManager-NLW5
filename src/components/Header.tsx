@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-import fonts from '~/styles/fonts';
-
 import colors from '../styles/colors';
+import fonts from '../styles/fonts';
 
 import userImg from '../assets/cintia.png';
 
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 20,
-    padding: 30,
+    padding: 20,
   },
   greeting: {
     fontSize: 52,
