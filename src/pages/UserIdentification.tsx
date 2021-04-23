@@ -40,8 +40,10 @@ export function UserIndentification() {
     setName(value);
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (!name) return Alert.alert('Ola como você se chama 🤪');
+
+    await AsyncStorage.setItem('@plantmanager:user', name);
 
     navigation.navigate('Confirmation');
   }
