@@ -9,6 +9,7 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
@@ -39,6 +40,8 @@ export function UserIndentification() {
   }
 
   function handleSubmit() {
+    if (!name) return Alert.alert('Ola como você se chama 🤪');
+
     navigation.navigate('Confirmation');
   }
 
