@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   Alert,
@@ -7,9 +7,12 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 
+import DataTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { useRoute } from '@react-navigation/core';
+import { format, isBefore } from 'date-fns';
 import { SvgFromUri } from 'react-native-svg';
 
 import colors from '../styles/colors';
@@ -34,8 +37,28 @@ interface Params {
 }
 
 export function PlantSave() {
+  const [selectedDateTime, setSelectedDataTime] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(Platform.OS == 'ios');
+
   const route = useRoute();
   const { plant } = route.params as Params;
+
+  function handleChangeTime(event: Event, dateTime: Date | undefined) {
+    if (Platform.OS === 'android') {
+      setShowDatePicker((oldState) => !oldState);
+    }
+
+    if (dateTime && isBefore(dateTime, new Date())) {
+      setSelectedDataTime(new Date());
+      return Alert.alert('Ops! Essa hora já passou!😓');
+    }
+    if (dateTime) setSelectedDataTime(dateTime);
+  }
+
+  function handleOpenDateTimerPickerForAndroid() {
+    setShowDatePicker((oldState) => !oldState);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.plantInfo}>
@@ -54,6 +77,27 @@ export function PlantSave() {
         <Text style={styles.alertLabel}>
           Escolha o melhor horario para ser lembrado.
         </Text>
+
+        {showDatePicker && (
+          <DataTimePicker
+            value={selectedDateTime}
+            mode="time"
+            display="spinner"
+            onChange={handleChangeTime}
+          />
+        )}
+
+        {Platform.OS === 'android' && (
+          <TouchableOpacity
+            onPress={handleOpenDateTimerPickerForAndroid}
+            style={styles.dateTimerPickerButton}
+          >
+            <Text style={styles.dateTimerPickerText}>{`Mudar ${format(
+              selectedDateTime,
+              'HH:mm',
+            )}`}</Text>
+          </TouchableOpacity>
+        )}
 
         <Button title="Cadastrar" onPress={() => { }} />
       </View>
@@ -123,5 +167,15 @@ const styles = StyleSheet.create({
     color: colors.heading,
     fontSize: 12,
     marginBottom: 5,
+  },
+  dateTimerPickerButton: {
+    width: '100%',
+    alignItems: 'center',
+    paddingVertical: 40,
+  },
+  dateTimerPickerText: {
+    color: colors.heading,
+    fontSize: 24,
+    fontFamily: fonts.text,
   },
 });
